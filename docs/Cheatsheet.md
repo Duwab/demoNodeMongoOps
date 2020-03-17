@@ -1,6 +1,6 @@
 # Cheat Sheet
 
-## Build image
+## Docker
 ```bash
 docker login
 docker build -t adubois360/<image-name> .
@@ -15,8 +15,8 @@ Official cheat sheet [here](https://kubernetes.io/docs/reference/kubectl/cheatsh
 ```bash
 kubectl apply -f demo.yaml
 minikube service <my-demo> --url
-kubectl logs -f <pdo-name> <container-name>
-kubectl exec -it <pdo-name> /bin/bash
+kubectl logs -f <pod-name> <container-name>
+kubectl exec -it <pod-name> /bin/bash
 kubectl get pods
 kubectl delete service <hello-kubernetes>
 kubectl delete deployment <hello-kubernetes>

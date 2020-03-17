@@ -36,6 +36,8 @@ spec:
                 env:
                   - name: MONGO_DEFAULT_HOSTNAME
                     value: "localhost"
+                  - name: MONGO_REPLICA_HOSTNAME
+                    value: "10.106.230.222"
               - name: mongo
                 image: mongo
                 ports:

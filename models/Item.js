@@ -1,15 +1,21 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const ItemSchema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  date: {
-    type: Date,
-    default: Date.now
-  }
-});
+function buildModel(connection) {
+  const Schema = mongoose.Schema;
 
-module.exports = Item = mongoose.model('item', ItemSchema);
+  const ItemSchema = new Schema({
+    name: {
+      type: String,
+      required: true
+    },
+    date: {
+      type: Date,
+      default: Date.now
+    }
+  });
+
+  return connection.model('item', ItemSchema);
+}
+
+
+module.exports = buildModel;

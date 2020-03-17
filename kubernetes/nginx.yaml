@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-custom
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: nginx-custom
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-custom
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-custom
+  template:
+    metadata:
+      labels:
+        app: nginx-custom
+    spec:
+      containers:
+        - name: nginx-custom
+          image: adubois360/nginx
+          ports:
+            - containerPort: 80
+
